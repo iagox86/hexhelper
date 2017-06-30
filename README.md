@@ -29,7 +29,28 @@ Using it is simple!
 require 'hexhelper'
 
 str = "This is a test string\x00\x01\x02"
-puts Hexhelper::to_s(str)
+puts HexHelper::to_s(str)
+```
+
+Which generates:
+
+```
+irb(main):001:0> require 'hexhelper'
+=> true
+irb(main):002:0> str = "This is a test string \x00\x01\x02"
+=> "This is a test string \u0000\u0001\u0002"
+irb(main):003:0> puts HexHelper::to_s(str)
+00000000  54 68 69 73 20 69 73 20 61 20 74 65 73 74 20 73   This.is.a.test.s
+00000010  74 72 69 6e 67 20 00 01 02                        tring....
+```
+
+It's also possible to indent with the `indent` parameter, and to highlight a
+particular offset with the `offset` parameter:
+
+```
+irb(main):004:0> puts HexHelper::to_s(str, indent: 4, offset: 0x10)
+    00000000  54 68 69 73 20 69 73 20 61 20 74 65 73 74 20 73   This.is.a.test.s
+    00000010 <74>72 69 6e 67 20 00 01 02                        tring....
 ```
 
 ## Contributing
