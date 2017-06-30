@@ -1,8 +1,9 @@
 # Hexhelper
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/hexhelper`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem simply makes it easy to dump a binary string as nicely formatted hex.
 
-TODO: Delete this and the text above, and describe your gem
+I found myself copying and pasting this code/project to a million different
+projects, so I thought it'd make sense to create a gem out of it.
 
 ## Installation
 
@@ -22,15 +23,17 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Using it is simple!
 
-## Development
+```ruby
+require 'hexhelper'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+str = "This is a test string\x00\x01\x02"
+puts Hexhelper::to_s(str)
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/hexhelper.
+Bug reports and pull requests are welcome on GitHub at
+https://github.com/iagox86/hexhelper
 
